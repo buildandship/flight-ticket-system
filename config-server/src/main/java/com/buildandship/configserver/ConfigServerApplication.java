@@ -1,14 +1,13 @@
-package com.buildandship.flightticketsystem;
-
+package com.buildandship.configserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FlightTicketSystemApplication {
+public class ConfigServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FlightTicketSystemApplication.class, args);
+		SpringApplication.run(ConfigServerApplication.class, args);
 	}
 
 }
