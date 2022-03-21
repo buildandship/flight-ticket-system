@@ -24,7 +24,6 @@
    5. Cross-cutting concern
       1. External Configuration
       2. Service Discovery
-      3. Circuit Breaker
 
 ##References
 [Microservice Architecture and Design Patterns for Microservices](https://medium.com/@madhukaudantha/microservice-architecture-and-design-patterns-for-microservices-e0e5013fd58a)
