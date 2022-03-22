@@ -1,0 +1,4 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://admin:admin@192.168.0.108:27017/planes-service?authSource=admin
