@@ -11,8 +11,9 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>config-service</module>
+		<module>config-server</module>
 		<module>eureka-server</module>
+		<module>api-gateway-server</module>
 	</modules>
 
 </project>
