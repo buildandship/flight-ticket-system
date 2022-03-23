@@ -8,6 +8,27 @@ spring:
         enabled: true
         uri: http://localhost:8888/config
         label: master
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      metrics:
+        enabled: true
+      routes:
+        planes-service:
+          path: /planes-service/**
+          serviceId: planes-service
+          stripPrefix: false
+        passengers-service:
+          path: /passengers-service/**
+          serviceId: passengers-service
+          stripPrefix: false
+        flights-service:
+          path: /flights-service/**
+          serviceId: flights-service
+          stripPrefix: false
 
 management:
   health:
@@ -20,3 +41,10 @@ management:
     web:
       exposure:
         include: "*"
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  region: default
+  registry-fetch-interval-seconds: 5
