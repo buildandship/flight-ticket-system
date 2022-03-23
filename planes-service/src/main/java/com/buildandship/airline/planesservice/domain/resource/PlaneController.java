@@ -18,40 +18,44 @@ import java.util.List;
 public class PlaneController {
 
   private final PlaneService service;
-  
+
   @GetMapping
   @ResponseStatus(HttpStatus.OK)
-  public List<Plane> planes(){
+  public List<Plane> planes() {
     return service.planes();
   }
-  
+
   @GetMapping("/{id}")
   @ResponseStatus(HttpStatus.OK)
-  public ResponseEntity<Plane> planeById(@PathVariable("id") String id){
+  public ResponseEntity<Plane> planeById(@PathVariable("id") String id) {
     Plane plane =
         service
             .plane(id)
             .orElseThrow(() -> new PlaneNotFoundException("Plane with ID : " + id + " not found"));
     return ResponseEntity.ok().body(plane);
   }
-  
+
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public Plane createPlane(@RequestBody PlaneRequest request){
+  public Plane createPlane(@RequestBody PlaneRequest request) {
     return service.create(request);
   }
-  
+
   @PutMapping("/{id}")
   @ResponseStatus(HttpStatus.CREATED)
-  public Plane updatePlane(@PathVariable("id") String id, @RequestBody PlaneRequest request){
-    return service.update(id,request);
+  public Plane updatePlane(@PathVariable("id") String id, @RequestBody PlaneRequest request) {
+    return service.update(id, request);
   }
-  
+
   @DeleteMapping("/{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
-  public ResponseEntity<String> deletePlane(@PathVariable("id") String id){
-   Plane plane = service.plane(id).orElseThrow(()-> new PlaneNotFoundException("Plane with ID : "+id+" not found!!"));
-   service.delete(plane);
-   return ResponseEntity.ok().body("Successfully deleted the plane!!!");
+  public ResponseEntity<String> deletePlane(@PathVariable("id") String id) {
+    Plane plane =
+        service
+            .plane(id)
+            .orElseThrow(
+                () -> new PlaneNotFoundException("Plane with ID : " + id + " not found!!"));
+    service.delete(plane);
+    return ResponseEntity.ok().body("Successfully deleted the plane!!!");
   }
 }

@@ -15,6 +15,7 @@
 		<module>eureka-server</module>
 		<module>api-gateway-server</module>
 		<module>planes-service</module>
+		<module>passengers-service</module>
 	</modules>
 
 </project>

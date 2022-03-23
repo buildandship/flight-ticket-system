@@ -37,7 +37,9 @@ public class PlaneService {
 
   public Plane update(@NonNull String id, @NonNull PlaneRequest request) {
     Optional<Plane> byId = this.repository.findById(id);
-    Plane plane = byId.orElseThrow().fromPlaneRequest(request);
+    Plane plane =
+        byId.orElseThrow(() -> new RuntimeException("Plane with Id " + id + " not found"))
+            .fromPlaneRequest(request);
     return this.repository.save(plane);
   }
 
