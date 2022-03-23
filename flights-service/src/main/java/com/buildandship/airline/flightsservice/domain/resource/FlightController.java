@@ -14,7 +14,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/flight")
+@RequestMapping("api/flights")
 @RequiredArgsConstructor
 public class FlightController {
 

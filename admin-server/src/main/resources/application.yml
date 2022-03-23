@@ -1,0 +1,24 @@
+server:
+  port: 5004
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  boot:
+    admin:
+      discovery:
+        converter:
+          health-endpoint-path: /actuator/health
+          management-context-path: /actuator
+  application:
+    name: admin-server
+  config:
+    import: optional:configserver:http://localhost:8888/config
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8888/config
+      label: master

@@ -17,18 +17,18 @@ spring:
       metrics:
         enabled: true
       routes:
-        planes-service:
-          path: /planes-service/**
-          serviceId: planes-service
-          stripPrefix: false
-        passengers-service:
-          path: /passengers-service/**
-          serviceId: passengers-service
-          stripPrefix: false
-        flights-service:
-          path: /flights-service/**
-          serviceId: flights-service
-          stripPrefix: false
+      - id: planes-service
+        uri: lb://planes-service
+        predicates:
+          - Path=/api/plane
+      - id: passengers-service
+        uri: lb://passengers-service
+        predicates:
+          - Path=/api/passenger
+      - id: flights-service
+        uri: lb://flights-service
+        predicates:
+          - Path=/api/flight
 
 management:
   health:
@@ -48,3 +48,5 @@ eureka:
       defaultZone: http://localhost:8761/eureka
   region: default
   registry-fetch-interval-seconds: 5
+  instance:
+    instance-id: ${spring.application.name}:${random.uuid}

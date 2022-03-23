@@ -17,6 +17,7 @@
 		<module>planes-service</module>
 		<module>passengers-service</module>
 		<module>flights-service</module>
+		<module>admin-server</module>
 	</modules>
 
 </project>
