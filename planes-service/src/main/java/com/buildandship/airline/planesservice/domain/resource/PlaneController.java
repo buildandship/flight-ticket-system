@@ -27,7 +27,7 @@ public class PlaneController {
 
   @GetMapping("/{id}")
   @ResponseStatus(HttpStatus.OK)
-  public ResponseEntity<Plane> planeById(@PathVariable("id") String id) {
+  public ResponseEntity<Plane> plane(@PathVariable("id") String id) {
     Plane plane =
         service
             .plane(id)

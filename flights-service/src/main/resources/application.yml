@@ -1,13 +1,21 @@
 spring:
+  data:
+    mongodb:
+      uri: mongodb://admin:admin@192.168.0.108:27017/flights-service?authSource=admin
   application:
-    name: api-gateway-server
+    name: flights-service
   config:
     import: optional:configserver:http://localhost:8888/config
     cloud:
       config:
         enabled: true
-        uri: http://localhost:8888/config
-        label: master
+
+server:
+  port: 0
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.uuid}
 
 management:
   health:
@@ -20,3 +28,7 @@ management:
     web:
       exposure:
         include: "*"
+
+planes:
+  service: PLANES-SERVICE
+  path: /api/planes/**

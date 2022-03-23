@@ -16,6 +16,7 @@
 		<module>api-gateway-server</module>
 		<module>planes-service</module>
 		<module>passengers-service</module>
+		<module>flights-service</module>
 	</modules>
 
 </project>

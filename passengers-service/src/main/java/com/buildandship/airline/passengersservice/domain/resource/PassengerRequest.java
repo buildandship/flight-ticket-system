@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
 import java.util.Set;
 
 @Data
@@ -19,6 +18,6 @@ public class PassengerRequest {
   private String fidelityNumber;
   private Set<PassengerDocument> documents;
   private Address address;
-  private LocalDate birthDate;
+  private String birthDate;
   private Contact contact;
 }

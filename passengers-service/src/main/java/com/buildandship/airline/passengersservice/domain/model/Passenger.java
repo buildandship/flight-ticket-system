@@ -19,7 +19,6 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class Passenger {
   @Id private String id;
   private String name;
@@ -59,7 +58,7 @@ public class Passenger {
     this.contact = passengerRequest.getContact();
     this.address = passengerRequest.getAddress();
     this.documents = passengerRequest.getDocuments();
-    this.birthDate = LocalDate.parse(passengerRequest.getBirthDate().toString(), FORMATTER);
+    this.birthDate = LocalDate.parse(passengerRequest.getBirthDate(), FORMATTER);
     return this;
   }
 }
