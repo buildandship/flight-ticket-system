@@ -1,14 +1,14 @@
 spring:
+  application:
+    name: passengers-service
   data:
     mongodb:
-      uri: mongodb://admin:admin@192.168.0.108:27017/planes-service?authSource=admin
-  application:
-    name: planes-service
+      uri: mongodb://admin:admin@192.168.0.108:27017/passengers-service?authSource=admin
   config:
-    import: optional:configserver:http://localhost:8888/config
-    cloud:
-      config:
-        enabled: true
+   import: optional:configserver:http://localhost:8888/config
+  cloud:
+    config:
+      enabled: true
 
 server:
   port: 0

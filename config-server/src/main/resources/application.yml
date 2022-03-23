@@ -10,6 +10,10 @@ management:
     readinessstate:
       enabled: true
   endpoint.health.probes.enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 eureka:
   client:
@@ -28,3 +32,4 @@ spring:
           uri: file://${user.home}/config-repo
           #uri: https://github.com/buildandship/flight-ticket-system
           #search-paths: config-repo*
+          clone-on-start: true
